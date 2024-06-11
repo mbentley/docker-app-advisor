@@ -40,7 +40,7 @@ RUN curl -L -H "Authorization: Bearer $ARTIFACTORY_TOKEN" -o /opt/app-advisor/up
 #  tar xvf /tmp/apache-maven-3.9.7-bin.tar.gz &&\
 #  rm /tmp/apache-maven-3.9.7-bin.tar.gz
 #
-## set PATH
+## set PATH (when inside the container)
 ## PATH="${PATH}:/opt/apache-maven-3.9.7/bin"
 
 USER app-advisor:app-advisor
