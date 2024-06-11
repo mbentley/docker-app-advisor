@@ -2,8 +2,8 @@
 FROM mbentley/alpine:latest
 LABEL maintainer="Matt Bentley <mbentley@mbentley.net>"
 
-# install dependencies
-RUN apk --no-cache add curl gcompat openjdk21 tar zlib
+# install dependencies for app advisor
+RUN apk --no-cache add curl openjdk21
 
 # create non-root user (app-advisor)
 RUN mkdir /opt/app-advisor &&\
@@ -25,6 +25,8 @@ RUN curl -L -H "Authorization: Bearer $ARTIFACTORY_TOKEN" -o /opt/app-advisor/up
   chown -R app-advisor:app-advisor /opt/app-advisor
 
 ### the below commented out RUN commands would be if you want to also act as the "client"
+## install additional dependencies
+# RUN apk --no-cache add gcompat tar zlib
 
 ## download the advisor CLI
 #RUN curl -L -H "Authorization: Bearer $ARTIFACTORY_TOKEN" -o /tmp/advisor-linux.tar -X GET "https://packages.broadcom.com/artifactory/spring-enterprise/com/vmware/tanzu/spring/application-advisor-cli-linux/0.0.4/application-advisor-cli-linux-0.0.4.tar" &&\
