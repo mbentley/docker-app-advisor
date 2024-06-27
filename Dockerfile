@@ -20,8 +20,11 @@ RUN mkdir -p /tmp/spring-support-database /tmp/cve-database/maven /opt/app-advis
 # build arg for your artifactory token
 ARG ARTIFACTORY_TOKEN
 
+# build arg for the app advisor version
+ARG APP_ADVISOR_VER="0.0.5"
+
 # download the spring app advisor server
-RUN curl -f -L -H "Authorization: Bearer $ARTIFACTORY_TOKEN" -o /opt/app-advisor/upgrade-service.jar -X GET "https://packages.broadcom.com/artifactory/spring-enterprise/com/vmware/tanzu/spring/application-advisor-server/0.0.5/application-advisor-server-0.0.5.jar" &&\
+RUN curl -f -L -H "Authorization: Bearer $ARTIFACTORY_TOKEN" -o /opt/app-advisor/upgrade-service.jar -X GET "https://packages.broadcom.com/artifactory/spring-enterprise/com/vmware/tanzu/spring/application-advisor-server/${APP_ADVISOR_VER}/application-advisor-server-${APP_ADVISOR_VER}.jar" &&\
   chown -R app-advisor:app-advisor /opt/app-advisor
 
 ### the below commented out RUN commands would be if you want to also act as the "client"
