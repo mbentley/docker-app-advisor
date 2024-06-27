@@ -32,7 +32,7 @@ RUN curl -f -L -H "Authorization: Bearer $ARTIFACTORY_TOKEN" -o /opt/app-advisor
 # RUN apk --no-cache add gcompat tar zlib
 
 ## download the advisor CLI
-#RUN curl -f -L -H "Authorization: Bearer $ARTIFACTORY_TOKEN" -o /tmp/advisor-linux.tar -X GET "https://packages.broadcom.com/artifactory/spring-enterprise/com/vmware/tanzu/spring/application-advisor-cli-linux/0.0.4/application-advisor-cli-linux-0.0.4.tar" &&\
+#RUN curl -f -L -H "Authorization: Bearer $ARTIFACTORY_TOKEN" -o /tmp/advisor-linux.tar -X GET "https://packages.broadcom.com/artifactory/spring-enterprise/com/vmware/tanzu/spring/application-advisor-cli-linux/${APP_ADVISOR_VER}/application-advisor-cli-linux-${APP_ADVISOR_VER}.tar" &&\
 #  cd /usr/local/bin &&\
 #  tar -xf /tmp/advisor-linux.tar --strip-components=1 --exclude=./META-INF &&\
 #  rm /tmp/advisor-linux.tar
